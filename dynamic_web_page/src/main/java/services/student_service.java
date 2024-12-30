@@ -48,7 +48,7 @@ public student getbyEmail(String email) {
 		String sql = "select * from student where email=?";
 		PreparedStatement pmst = conn.prepareStatement(sql);
 		pmst.setString(1,email);
-		ResultSet rs = pmst.executeQuery()
+		ResultSet rs = pmst.executeQuery();
 		while(rs.next()) {
 			s = new student();
 			s.setRollno(rs.getString(1));
@@ -132,5 +132,6 @@ public boolean updateStudent(student s) {
 	} catch (Exception e) {
 		e.printStackTrace();
 	}
+	return f;
 }
 }
